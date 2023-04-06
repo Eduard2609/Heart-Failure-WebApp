@@ -1,0 +1,21 @@
+{
+  "name": "heart-failure-webapp",
+  "version": "1.0.0",
+  "description": "The webapplication that uses the my API of predicting heart failure",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eduard2609/Heart-Failure-WebApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eduard2609/Heart-Failure-WebApp/issues"
+  },
+  "homepage": "https://github.com/Eduard2609/Heart-Failure-WebApp#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.32.2"
+  }
+}
