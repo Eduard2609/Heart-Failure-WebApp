@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 
 type AppProps = {};
 
@@ -73,9 +72,9 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     sex === "Male" ? 1 : sex === "Female" ? 0 : null,
     Number(restingBP),
     Number(cholesterol),
-    fastingBloodSugar === "yes" ? 1 : fastingBloodSugar === "no" ? 0 : null,
+    fastingBloodSugar === "Yes" ? 1 : fastingBloodSugar === "No" ? 0 : null,
     Number(maxHR),
-    exerciseInducedAngina === "yes" ? 1 : exerciseInducedAngina === "no" ? 0 : null,
+    exerciseInducedAngina === "Yes" ? 1 : exerciseInducedAngina === "No" ? 0 : null,
     Number(oldPeak),
     chestPainType === "ASY" ? [1, 0, 0, 0] : chestPainType === "ATA" ? [0, 1, 0, 0] : chestPainType === "NAP" ? [0, 0, 1, 0] : chestPainType === "TA" ? [0, 0, 0, 1] : [null, null, null,null],
     restingECG === "LVH" ? [1, 0, 0] : restingECG === "Normal" ? [0, 1, 0] : restingECG === "ST" ? [0, 0, 1] : [null, null, null],
@@ -190,8 +189,8 @@ fetch("http://127.0.0.1:8000/predict", {
           onChange={handleInputChange}
         >
           <option value="">--Please choose an option--</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
         </select>
       </label>
 
@@ -216,8 +215,8 @@ fetch("http://127.0.0.1:8000/predict", {
           onChange={handleInputChange}
         >
           <option value="">--Please choose an option--</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
         </select>
       </label>
       <br />
