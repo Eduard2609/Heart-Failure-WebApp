@@ -129,5 +129,13 @@ button:focus-visible {
 }
 
 .main-container {
-  margin-top: -350px;
+  margin-top: -150px;
+}
+
+.result {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid black;
+  font-size: 1.8rem;
+  font-weight: bold;
 }

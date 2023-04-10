@@ -59,12 +59,17 @@ const App: React.FC<AppProps> = () => {
   }
 };
 // check if all the fields are filled
+const [resultMessage, setResultMessage] = useState("");
+
+
 
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
   
   // Get the form data from state
   const formData = { age, sex, restingBP, cholesterol, fastingBloodSugar, maxHR, exerciseInducedAngina, oldPeak, chestPainType, restingECG, ST_Slope };
+
+  
 
   // Convert the form data to the desired format
   const convertedData = [
@@ -116,9 +121,13 @@ fetch("http://127.0.0.1:8000/predict", {
     } else {
       message = `The model predicted that the person has a risk of heart disease (${(100 - (prob * 100)).toFixed(2)}%) and should seek medical attention.`;
     }
-    alert(message);
+    setResultMessage(message);
   })
-  .catch((error) => console.log(error));
+  .catch((error) => {
+    console.error(error);
+    setResultMessage("An error occurred. Please try again later.");
+});
+
 };
 
 
@@ -227,6 +236,7 @@ fetch("http://127.0.0.1:8000/predict", {
           type="number"
           name="oldPeak"
           value={oldPeak}
+          placeholder="The ST depression induced by exercise relative to rest"
           onChange={handleInputChange}
         />
       </label>
@@ -277,6 +287,8 @@ fetch("http://127.0.0.1:8000/predict", {
       <div>
       <button type="submit" className="submit-button-green" >Submit</button>
       </div>
+      <br/>
+      <div id="result">{resultMessage}</div>
     </form>
     </div>
     </div>

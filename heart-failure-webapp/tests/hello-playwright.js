@@ -1,24 +1,6 @@
-import { chromium } from 'playwright';
-import { test, expect, Page } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-
-test.describe('Heart Failure Web App', () => {
-  let page: Page;
-
-  test.beforeAll(async ({ browser }) => {
-    page = await browser.newPage();
-  });
-
-  test.beforeEach(async () => {
-    await page.goto('http://localhost:5173/');
-  });
-
-  test ('should complete the form', async () => {
-    const browser = await chromium.launch({
-  
-    });
-  const context = await browser.newContext();
-  const page = await context.newPage();
+test('test', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   await page.getByLabel('Age:').click();
   await page.getByLabel('Age:').fill('55');
@@ -43,18 +25,5 @@ test.describe('Heart Failure Web App', () => {
   await page.getByText('ST Slope:--Please choose an option--DownFlatUp').click();
   await page.getByRole('combobox', { name: 'ST Slope:' }).selectOption('Up');
   await page.getByRole('button', { name: 'Submit' }).click();
-  await page.getByText('The model predicted that the person is not likely to have heart disease, with a').click();
-  
-  // ---------------------
-  await context.close();
-  await browser.close();
-  });
-
-  test ('complete the form', async () => {
-  page.once('dialog', dialog => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    dialog.dismiss().catch(() => {});
-  });
-});
-
+  await page.getByText('The model predicted that the person is not likely to have heart disease, with a risk of only 4.00%').click();
 });
