@@ -58,6 +58,8 @@ const App: React.FC<AppProps> = () => {
       break;
   }
 };
+
+
 // check if all the fields are filled
 const [resultMessage, setResultMessage] = useState("");
 
